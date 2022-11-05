@@ -24,10 +24,10 @@ Features I would love to add in the future:
 - Language enabling
 - A modal sheet where people can view pictures or views of my projects in the application
 
-Link to the Apk()
+Link to the Apk(https://drive.google.com/file/d/1KM7wwsa-mA-gWSJ4xesCSEPPRyCOrKDx/view?usp=share_link)
 
 Challenges I faced during the creation of this project:
 - I didn't know how to work with the percent indicator and url launcher packages as this was my first implementation with them. I overcame my difficulties by reading the documentaion.
 - I had issues styling my Cards individually and decided to learn about creating a Card Theme to make it easier.
 
-Link to Appetize()
+Link to Appetize(https://appetize.io/app/7pof7gga3rlckch6weg6ck2xba?device=iphone14pro&osVersion=16.0&scale=75)
