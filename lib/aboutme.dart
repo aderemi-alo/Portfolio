@@ -18,11 +18,7 @@ class _AboutMeState extends State<AboutMe> {
         elevation: 0,
         centerTitle: false,
         backgroundColor: Colors.white,
-        title: Text(
-          "About Me",
-          style: GoogleFonts.roboto(
-              color: Colors.black, fontWeight: FontWeight.bold),
-        ),
+        title: Text("About Me", style: Theme.of(context).textTheme.titleLarge),
       ),
       body: Body(),
     );
@@ -53,7 +49,6 @@ class _BodyState extends State<Body> {
               child: Container(
                 padding: EdgeInsets.all(10),
                 width: double.infinity,
-                height: 280,
                 child: Text(
                   "Hey there, I'm Remi, a budding mobile developer who also loves anime, games and reading. I also dabble in poetry from time to time."
                   "\n \nFor the company, i would be able to translate deisgns provided into their relevent replicaitons on mobile platforms, and as I use Flutter, i would not be limited to either iOS or Android",

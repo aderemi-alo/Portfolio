@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'custom_widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'url_links.dart';
 
 class SkillsPage extends StatelessWidget {
   const SkillsPage({super.key});
@@ -16,9 +14,8 @@ class SkillsPage extends StatelessWidget {
         centerTitle: false,
         backgroundColor: Colors.white,
         title: Text(
-          "Work",
-          style: GoogleFonts.roboto(
-              color: Colors.black, fontWeight: FontWeight.bold),
+          "Portfolio",
+          style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
       body: const Body(),
@@ -76,7 +73,7 @@ class _BodyState extends State<Body> {
             Card(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
@@ -117,10 +114,21 @@ class _BodyState extends State<Body> {
                   children: [
                     const Text("Projects"),
                     Row(
-                      children: [
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
                         ProjectButton(
                           projectName: "PATHOMED",
-                        )
+                          githubLink: "https://github.com/aderemi-alo/PathoMed",
+                          description:
+                              "Pathomed is a mobile application which helps Pathologists conduct a diagnosis for patients who could possibly have breast cancer. It was created as my final year project and can be found on github by clicking the icon above",
+                        ),
+                        ProjectButton(
+                          projectName: "PORTFOLIO",
+                          githubLink:
+                              "https://github.com/aderemi-alo/Portfolio",
+                          description:
+                              "Portfolio is a mobile version of my resume showcasing my skills, experience, information about me and past projects i have done",
+                        ),
                       ],
                     ),
                   ],
@@ -138,42 +146,47 @@ class ProjectButton extends StatelessWidget {
   const ProjectButton({
     Key? key,
     required this.projectName,
+    required this.githubLink,
+    required this.description,
   }) : super(key: key);
 
   final String projectName;
+  final String githubLink;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
           showModalBottomSheet(
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15))),
-              constraints: BoxConstraints(maxHeight: 200),
+              constraints: const BoxConstraints(maxHeight: 200),
               context: context,
               builder: (context) {
                 return Column(
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     ListTile(
-                      leading: const Text("PATHOMED"),
+                      leading: Text(projectName),
                       trailing: IconButton(
                           onPressed: () {
-                            launchUrl(Uri.parse(
-                                "https://github.com/aderemi-alo/PathoMed"));
+                            launchUrl(Uri.parse(githubLink));
                           },
                           icon: const Icon(
                             FontAwesomeIcons.github,
                           )),
                     ),
-                    Text(
-                        """Pathomed is a mobile application which helps Pathologists conduct a diagnosis for patients who could possibly have breast cancer. It was created as my final year project and can be found on github by clicking the icon above""")
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(description),
+                    )
                   ],
                 );
               });
         },
-        child: Text("PATHOMED"));
+        child: Text(projectName));
   }
 }

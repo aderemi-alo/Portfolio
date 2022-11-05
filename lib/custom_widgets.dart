@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class SkillsBar extends StatelessWidget {
@@ -61,12 +62,21 @@ class ExperienceStack extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(company),
+            Text(
+              company,
+              style: GoogleFonts.kanit(fontWeight: FontWeight.w600),
+            ),
             const SizedBox(width: 10),
             Text(duration),
           ],
         ),
-        Text(role),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          role,
+          style: GoogleFonts.kanit(fontWeight: FontWeight.w500),
+        ),
       ],
     );
   }

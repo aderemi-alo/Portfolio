@@ -18,7 +18,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: TextTheme(),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style:
+              ElevatedButton.styleFrom(backgroundColor: Colors.blue.shade400),
+        ),
+        textTheme: TextTheme(
+          titleLarge: GoogleFonts.roboto(
+              fontWeight: FontWeight.bold, color: Colors.black),
+        ),
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -27,20 +34,7 @@ class MyApp extends StatelessWidget {
           color: Colors.grey.shade300,
         ),
       ),
-      darkTheme: ThemeData(
-          primaryTextTheme: TextTheme(
-            bodyLarge: GoogleFonts.roboto(fontSize: 30),
-          ),
-          scaffoldBackgroundColor: Color.fromARGB(255, 8, 8, 8),
-          cardTheme: CardTheme(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            shadowColor: Colors.black,
-            color: Color.fromARGB(255, 21, 21, 21),
-          ),
-          textTheme: TextTheme(headlineMedium: GoogleFonts.roboto())),
-      home: Navigation(),
+      home: const Navigation(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -55,8 +49,6 @@ class Navigation extends StatefulWidget {
 
 class _NavigationState extends State<Navigation> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List pages = [AboutMe(), SkillsPage()];
   @override
   Widget build(BuildContext context) {
@@ -81,17 +73,17 @@ class _NavigationState extends State<Navigation> {
               gap: 8,
               activeColor: Colors.black,
               iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
               tabBackgroundColor: Colors.grey[100]!,
               color: Colors.black,
-              tabs: [
+              tabs: const [
                 GButton(
                   icon: FontAwesomeIcons.person,
                   text: 'About Me',
                 ),
                 GButton(
-                  icon: FontAwesomeIcons.briefcaseMedical,
+                  icon: FontAwesomeIcons.suitcase,
                   text: 'Portfolio',
                 ),
               ],
