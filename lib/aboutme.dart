@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'custom_widgets.dart';
 
 class AboutMe extends StatefulWidget {
   const AboutMe({super.key});
@@ -86,33 +86,6 @@ class _BodyState extends State<Body> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class ContactInfo extends StatelessWidget {
-  const ContactInfo({
-    Key? key,
-    required this.url,
-    required this.icon,
-    required this.username,
-  }) : super(key: key);
-
-  final String url;
-  final Icon icon;
-  final String username;
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        IconButton(
-          onPressed: () {
-            launchUrl(Uri.parse(url));
-          },
-          icon: icon,
-        ),
-        Text(username)
-      ],
     );
   }
 }
